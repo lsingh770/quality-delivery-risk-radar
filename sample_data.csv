@@ -1,0 +1,11 @@
+Project Name,Sprint / Release Name,Open Defects Count,Critical Defects Count,High Defects Count,Test Pass Percentage,Automation Coverage Percentage,Sprint Velocity Current,Sprint Velocity Previous,Release Delay (days),Team Size
+PaymentGateway v3,Sprint 14,42,8,15,61,38,28,40,12,8
+MobileApp 2.0,Release Q3,18,2,6,84,72,45,43,3,12
+DataPipeline Rewrite,Sprint 7,67,14,22,44,25,18,35,21,6
+CustomerPortal,Sprint 22,9,0,3,93,81,52,50,0,10
+InventorySystem,Sprint 5,31,5,11,70,55,35,34,7,7
+ReportingEngine,Release 1.2,55,11,19,52,30,22,38,18,9
+OnboardingFlow,Sprint 11,12,1,4,88,68,48,47,2,11
+LegacyMigration,Sprint 3,78,18,25,38,20,15,32,30,5
+HRPlatform,Sprint 9,23,3,8,76,60,40,41,5,8
+APIGateway,Release 2.0,6,0,2,96,88,58,57,0,13
