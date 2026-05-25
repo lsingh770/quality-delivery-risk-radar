@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+/* ── GLOBAL ── */
+html, body, [class*="css"] {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #f5f6fa;
+    color: #1a1d2e;
+}
+.main { background-color: #f5f6fa; }
+.block-container { padding: 2rem 2.5rem 3rem; }
+#MainMenu, footer, header { visibility: hidden; }
+h1, h2, h3, h4 {
+    font-family: 'Syne', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+/* ── HIDE SIDEBAR ── */
+section[data-testid="stSidebar"] { display: none !important; }
+[data-testid="collapsedControl"]  { display: none !important; }
+
+/* ── HERO HEADER ── */
+.hero-header {
+    background: linear-gradient(135deg, #ffffff 0%, #eef2ff 50%, #e8f0fe 100%);
+    border: 1px solid rgba(99,130,237,0.2);
+    border-radius: 16px;
+    padding: 2.2rem 2.5rem 1.8rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+.hero-header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(99,130,237,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+.hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a1d2e;
+    margin: 0 0 0.3rem;
+    letter-spacing: -0.03em;
+}
+.hero-subtitle {
+    font-size: 0.95rem;
+    color: #6b7280;
+    font-weight: 300;
+    margin: 0;
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(99,130,237,0.1);
+    color: #4361ee;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid rgba(99,130,237,0.25);
+    margin-bottom: 0.9rem;
+}
+
+/* ── METRIC CARDS ── */
+.metric-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.metric-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.metric-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent, #4361ee);
+    opacity: 0.7;
+}
+.metric-card.red::after    { --accent: #e53e3e; }
+.metric-card.orange::after { --accent: #dd6b20; }
+.metric-card.green::after  { --accent: #276749; }
+.metric-card.blue::after   { --accent: #4361ee; }
+.metric-label {
+    font-size: 0.73rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #9ca3af;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.metric-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+}
+.metric-value.red    { color: #e53e3e; }
+.metric-value.orange { color: #dd6b20; }
+.metric-value.green  { color: #276749; }
+.metric-value.blue   { color: #4361ee; }
+.metric-sub { font-size: 0.78rem; color: #9ca3af; }
+
+/* ── RISK TABLE ── */
+.risk-table-wrap {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.risk-table-header {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fafafa;
+}
+.section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1d2e;
+    margin: 0;
+}
+.section-subtitle { font-size: 0.78rem; color: #9ca3af; margin: 0; }
+
+/* ── RISK BADGE ── */
+.risk-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+}
+.risk-badge.high   { background: rgba(229,62,62,0.08);   color: #c53030; border: 1px solid rgba(229,62,62,0.25); }
+.risk-badge.medium { background: rgba(221,107,32,0.08);  color: #c05621; border: 1px solid rgba(221,107,32,0.25); }
+.risk-badge.low    { background: rgba(39,103,73,0.08);   color: #276749; border: 1px solid rgba(39,103,73,0.25); }
+
+/* ── SCORE BAR ── */
+.score-bar-wrap { width: 100%; }
+.score-bar-track {
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+.score-bar-fill { height: 100%; border-radius: 3px; }
+
+/* ── DETAIL CARD ── */
+.detail-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+/* ── RISK BREAKDOWN ── */
+.risk-breakdown {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.2rem;
+}
+.breakdown-item {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+}
+.breakdown-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #9ca3af;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+.breakdown-score {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+}
+.breakdown-explain { font-size: 0.73rem; color: #6b7280; line-height: 1.4; }
+
+/* ── INSIGHT BOX ── */
+.insight-box {
+    background: rgba(67,97,238,0.05);
+    border: 1px solid rgba(67,97,238,0.18);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    margin-top: 1rem;
+}
+.insight-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #4361ee;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+.insight-text {
+    font-size: 0.85rem;
+    color: #374151;
+    line-height: 1.55;
+    margin: 0;
+    font-style: italic;
+}
+
+/* ── UPLOAD ZONE ── */
+.upload-zone {
+    background: #ffffff;
+    border: 2px dashed #d1d5db;
+    border-radius: 14px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.upload-zone:hover { border-color: #4361ee; }
+.upload-icon  { font-size: 2.5rem; margin-bottom: 0.8rem; }
+.upload-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1d2e;
+    margin-bottom: 0.4rem;
+}
+.upload-sub { font-size: 0.82rem; color: #9ca3af; }
+
+/* ── WHAT-IF BOX ── */
+.whatif-box {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+/* ── STREAMLIT OVERRIDES ── */
+.stButton > button {
+    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+    color: #4361ee;
+    border: 1px solid rgba(67,97,238,0.3);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.5rem 1.2rem;
+    transition: all 0.2s;
+}
+.stButton > button:hover {
+    background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+    border-color: rgba(67,97,238,0.5);
+    transform: translateY(-1px);
+}
+.stSelectbox > div > div {
+    background: #ffffff;
+    border-color: #d1d5db;
+    color: #1a1d2e;
+    border-radius: 8px;
+}
+div[data-testid="stMetricValue"] {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem !important;
+}
+.stDataFrame { background: #ffffff !important; border-radius: 10px; }
+
+/* ── TABS ── */
+.stTabs [data-baseweb="tab-list"] {
+    background: #f3f4f6;
+    border-radius: 10px;
+    padding: 4px;
+    gap: 2px;
+    border: 1px solid #e5e7eb;
+}
+.stTabs [data-baseweb="tab"] {
+    background: transparent;
+    color: #9ca3af;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    border-radius: 7px;
+    padding: 0.4rem 1rem;
+}
+.stTabs [aria-selected="true"] {
+    background: #ffffff !important;
+    color: #1a1d2e !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+hr { border-color: #f3f4f6 !important; }
