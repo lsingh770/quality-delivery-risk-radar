@@ -1,3 +1,118 @@
+![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat&logo=python)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.32+-red?style=flat&logo=streamlit)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat)
+
+# 🎯 Quality & Delivery Risk Radar  
+[Click here to Experience](https://quality-delivery-risk-radar-dgtexkpghkshqqro8ppjcj.streamlit.app/)
+### A Decision-Intelligence Tool for Engineering & Delivery Managers
+
+---
+
+## Problem Statement
+
+In most technology organizations, delivery managers and engineering leads are **drowning in data but starving for insight**.
+
+Every sprint, teams generate enormous amounts of execution data — defect counts, test results, velocity metrics, release timelines.  
+But this data lives in **disconnected tools**:
+
+- Jira for defects  
+- TestRail for test results  
+- Confluence for sprint reports  
+- Spreadsheets for release tracking  
+
+What’s missing is a **single, synthesized answer** to the most important weekly question a manager needs to ask:
+
+> **“Are we at risk of failing this delivery — and what should I do about it right now?”**
+
+---
+
+## Why This Is a Serious Problem
+
+Failing to answer this question early has well-documented consequences:
+
+- **Late defect discovery is expensive**  
+  Defects found in production cost **10–100× more** to fix than those caught during development.
+
+- **Velocity decay goes unnoticed**  
+  A drop from 45 to 28 story points over two sprints is a clear warning signal — but often gets buried in daily standups.
+
+- **Managers waste time gathering data**  
+  Delivery managers spend **40–60% of their time collecting status** instead of making decisions.
+
+- **Risk escalation is reactive**  
+  By the time a project turns “red” in a steering committee, the window for meaningful corrective action has already closed.
+
+---
+
+## Why Existing Tools Don’t Solve This
+
+| Tool | What it does | What it misses |
+|-----|-------------|----------------|
+| Jira / Azure DevOps | Tracks defects and sprints | No cross-signal risk synthesis |
+| TestRail / Zephyr | Tracks test results | Siloed, no delivery context |
+| Power BI / Tableau | Visualizes data | Requires manual modeling |
+| Excel Dashboards | Flexible | Not real-time, no scoring logic |
+| DORA Metrics Tools | Engineering throughput | Not manager-facing, no actions |
+
+**None of these tools answer the manager’s core question.**  
+They all require the manager to become a data analyst first.
+
+---
+
+## The Solution
+
+**Quality & Delivery Risk Radar** is a **single-file Python application** that ingests a standard **CSV / Excel export** of project metrics and produces an **executive-grade risk dashboard in under 60 seconds**.
+
+It converts raw engineering signals into **three actionable outputs**:
+
+1. **Risk score (0–100)** with traffic-light categorization for each project  
+2. **Risk breakdown** across three business dimensions:
+   - Quality  
+   - Schedule  
+   - Execution  
+3. **Plain-English management actions** tied directly to the top risk drivers
+
+This is **not an analytics tool**.  
+It is a **decision-support tool**.
+
+---
+
+## Questions the Tool Answers
+
+Every screen is designed to answer one of three critical Monday-morning questions:
+
+- **“Are we at risk?”**  
+  → *Portfolio Summary*
+
+- **“Why are we at risk?”**  
+  → *Project Deep Dive*
+
+- **“What if I intervene?”**  
+  → *What-If Analysis*
+
+---
+
+## What Problem This Tool Solves
+
+### For Engineering Managers
+- Eliminates manual synthesis of defects, test results, and velocity
+- Produces a consistent, objective project health view every sprint
+
+### For Delivery Managers
+- Acts as an **early warning system**, not a post-mortem
+- Enables intervention at **Medium Risk**, when fixes are still cheap
+
+### For Program Managers
+- Provides a **single portfolio view** across multiple deliveries
+- Replaces multiple status reports with one ranked, comparable dashboard
+
+### For Consultants
+- Offers a **structured, defensible risk framework**
+- Can be presented to clients as a **repeatable methodology**, not opinion
+
+---
+
 # Quality & Delivery Risk Radar — MVP
 
 A manager-friendly decision-support tool that converts engineering execution signals into **business risk insights** and **recommended actions** — built for delivery managers, not developers.
@@ -106,19 +221,33 @@ Click **Browse files** in the sidebar and upload your CSV or Excel file.
 ## Architecture
 
 ```
-risk_radar/
-├── app.py           ← Single-file Streamlit application
-├── sample_data.csv  ← Example data with 10 projects
-└── README.md        ← This file
+quality-delivery-risk-radar/
+│
+├── app.py              ← Entry point — page config, loads styles, orchestrates tabs
+├── scoring.py          ← Risk scoring engine — all business logic, zero UI
+├── components.py       ← UI layer — all HTML templates and Streamlit rendering
+├── styles.css          ← Stylesheet — all visual styling, zero Python
+│
+├── sample_data.csv     ← 10-project starter dataset
+├── requirements.txt    ← Python dependencies
+└── README.md           ← This file
 ```
+### Design Principles
+- **Strict separation of concerns**  
+  Business logic, presentation, and orchestration are intentionally decoupled.
+- **Testable core logic**  
+  `scoring.py` contains no UI dependencies and can be unit-tested independently.
+- **UI flexibility**  
+  All visual changes are isolated to `components.py` and `styles.css`.
+- **Single-responsibility files**  
+  Each file does exactly one thing — no hidden coupling.
+
 
 **Tech stack:**
 - Python 3.8+
 - Streamlit (UI framework)
 - Pandas (data processing)
 - Pure rule-based scoring (no ML, fully transparent)
-
-**All scoring logic is in `app.py`** under clearly labeled functions — editable by any Python developer without ML knowledge.
 
 ---
 
